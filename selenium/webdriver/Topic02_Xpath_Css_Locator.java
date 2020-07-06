@@ -41,10 +41,11 @@ public class Topic02_Xpath_Css_Locator {
 	}
 	@Test
 	public void TC_02_Class() throws InterruptedException {
-		driver.findElement(By.className("input-text required-entry validate-password")).sendKeys("123456");
+		driver.findElement(By.className("validate-password")).sendKeys("123456");
 		Thread.sleep(2000);
-		driver.findElement(By.className("input-text required-entry validate-password")).clear();
+		driver.findElement(By.className("validate-password")).clear();
 	}
+	
 	@Test
 	public void TC_03_Name() throws InterruptedException{
 		driver.findElement(By.name("login[username]")).sendKeys("name@gmail.com");
@@ -72,19 +73,20 @@ public class Topic02_Xpath_Css_Locator {
 		Thread.sleep(2000);
 	}
 	@Test
-	public void TC_07_Css()throws InterruptedException {
+	public void TC_07_Xpath()throws InterruptedException {
+		//name
+		driver.findElement(By.xpath("//input[@class='input-text required-entry validate-password']")).sendKeys("123456");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@class='input-text required-entry validate-password']")).clear();
+	}
+	@Test
+	public void TC_08_Css()throws InterruptedException {
 		//ID
 		driver.findElement(By.cssSelector("#search")).sendKeys("may store");
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("#search")).clear();
 	}
-	@Test
-	public void TC_08_Xpath()throws InterruptedException {
-		//class
-		driver.findElement(By.xpath("//[@class='input-text']")).sendKeys("iphone X");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//[@class='input-text']")).clear();
-	}
+	
 	@AfterClass
 	public void afterClass() throws InterruptedException{
 		driver.quit();
