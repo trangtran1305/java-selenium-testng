@@ -89,11 +89,14 @@ public class Topic_03_Xpath_Technical {
 		Assert.assertEquals(confimDisplay1,"MY DASHBOARD");
 		String confimDisplay2 = driver.findElement(By.xpath("//strong[text()='Hello, Automation Testing!']")).getText();
 		Assert.assertEquals(confimDisplay2,"Hello, Automation Testing!");
-		/*/Xpath lấy "Automation Testing"
+		/*/Xpath lấy riêng "Automation Testing"
 		 //div[@class="col-1"]//p/text()[1]
-		  Xpath lấy "automation13@gmail.com"
+		  Xpath lấy riêng"automation13@gmail.com"
 		 //div[@class="col-1"]//p/text()[2]
 		 */
+	    Assert.assertTrue(driver.findElement(By.xpath("//div[@class='box']//p[contains(text(),'Automation Testing')]")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='box']//p[contains(.,'automation_13@gmail.com')]")).isDisplayed());
+		
 		driver.findElement(By.xpath("//span[text()='Account']/parent::a")).click();
 		driver.findElement(By.xpath("//a[@title='Log Out']")).click();
 		Thread.sleep(2000);
