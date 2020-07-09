@@ -86,7 +86,7 @@ public class Topic_03_Xpath_Technical {
 
 		driver.findElement(By.id("email")).sendKeys("automation_13@gmail.com");
 		driver.findElement(By.id("pass")).sendKeys("123123");
-        driver.findElement(By.id("send2")).click();
+		driver.findElement(By.id("send2")).click();
 		String confimDisplay1 = driver
 				.findElement(By.xpath("//div[@class='page-title']//h1[contains(text(),'My Dashboard')]")).getText();
 		Assert.assertEquals(confimDisplay1, "MY DASHBOARD");
