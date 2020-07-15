@@ -22,6 +22,7 @@ public class Topic_03_Xpath_Technical {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("http://live.demoguru99.com/");
 	}
+	
 
 	@Test
 	public void TC_01_Login_With_empty_EmailandPass() throws InterruptedException {
@@ -155,7 +156,7 @@ public class Topic_03_Xpath_Technical {
 		driver.quit();
 	}
 
-	public int randomNumber() {
+	public static int randomNumber() {
 		Random rand = new Random();
 		return rand.nextInt(9999);
 	}

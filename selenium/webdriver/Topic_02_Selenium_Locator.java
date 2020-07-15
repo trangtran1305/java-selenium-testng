@@ -26,6 +26,7 @@ public class Topic_02_Selenium_Locator {
 	}
 	
 	
+	
 	@Test
 	public void TC_01_ID() throws InterruptedException {
 		driver.findElement(By.id("email")).sendKeys("id@gmail.com");
