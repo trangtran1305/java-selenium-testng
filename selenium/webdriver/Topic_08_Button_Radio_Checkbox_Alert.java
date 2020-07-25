@@ -26,7 +26,7 @@ public class Topic_08_Button_Radio_Checkbox_Alert {
 		driver.manage().window().maximize();
 		
 	}
-//testcase
+
 	@Test
 	public void TC_01_Button() {
 		//Truy cập trang

@@ -14,7 +14,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_06_Dropdown_List {
+public class Topic_06_DefaultDropdown_List {
 	WebDriver driver;
 	Select select;
 

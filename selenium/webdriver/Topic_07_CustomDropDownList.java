@@ -98,6 +98,7 @@ public class Topic_07_CustomDropDownList {
 		for(WebElement item: allItems)
 		{
 			if(item.getText().equals(expectedItem)) {
+				// Cuộn scroll tới vị trí item
 				jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
 				sleepInSecond(2);
 				explicitWait.until(ExpectedConditions.elementToBeClickable(item));
@@ -128,5 +129,6 @@ public class Topic_07_CustomDropDownList {
 			e.printStackTrace();
 		}
 	}
+	
 
 }
