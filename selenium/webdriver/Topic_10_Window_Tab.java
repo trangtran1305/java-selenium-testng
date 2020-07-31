@@ -27,8 +27,10 @@ public class Topic_10_Window_Tab {
 	WebDriver driver;
 	JavascriptExecutor js;
 
+
 	@BeforeClass
 	public void beforeClass() {
+		
 		driver = new FirefoxDriver();
 		js = (JavascriptExecutor) driver;
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

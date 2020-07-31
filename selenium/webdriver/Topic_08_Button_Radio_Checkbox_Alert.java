@@ -16,10 +16,12 @@ import org.testng.annotations.Test;
 
 public class Topic_08_Button_Radio_Checkbox_Alert {
 	WebDriver driver;
+	String source_file=System.getProperty("user.dir");
 	JavascriptExecutor js;
 	WebElement loginButton;
 	@BeforeClass
 	public void beforeClass() {
+		System.setProperty("webdriver.gecko.driver",source_file+"\\browserDriver\\geckodriver.exe");
 		driver = new FirefoxDriver();
 		js= (JavascriptExecutor) driver;
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -40,6 +42,7 @@ public class Topic_08_Button_Radio_Checkbox_Alert {
 		driver.findElement(By.xpath("//input[@id='login_username']")).sendKeys("automation@gmail.com");
 		driver.findElement(By.xpath("//input[@id='login_password']")).sendKeys("123456");
 		sleepInSecond(3);
+		
 		//Verify nút đăng nhập is enable
 		Assert.assertTrue(loginButton.isEnabled());
 		//refresh lại trang=> html fresh lại=> giá trị các biến element cũng bị thay đổi

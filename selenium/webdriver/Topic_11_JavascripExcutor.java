@@ -14,10 +14,13 @@ import org.testng.annotations.Test;
 
 public class Topic_11_JavascripExcutor {
 	WebDriver driver;
+	WebElement element;
 	JavascriptExecutor js;
+	
 
 	@BeforeClass
 	public void beforeClass() {
+		
 		driver = new FirefoxDriver();
 		js= (JavascriptExecutor)driver;
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -67,7 +70,58 @@ public class Topic_11_JavascripExcutor {
 	public void TC_03_Create_An_Account() {
 		
 	}
+	// Browser
+		public Object executeForBrowser(String javaSript) {
+			return js.executeScript(javaSript);
+		}
 
+		public boolean verifyTextInInnerText(String textExpected) {
+			String textActual = (String) js.executeScript("return document.documentElement.innerText.match('" + textExpected + "')[0]");
+			System.out.println("Text actual = " + textActual);
+			return textActual.equals(textExpected);
+		}
+
+		public void scrollToBottomPage() {
+			js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+		}
+
+		public void navigateToUrlByJS(String url) {
+			js.executeScript("window.location = '" + url + "'");
+		}
+
+		// Element
+		public void highlightElement(String locator) {
+			element = driver.findElement(By.xpath(locator));
+			String originalStyle = element.getAttribute("style");
+			js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", "border: 5px solid red; border-style: dashed;");
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", originalStyle);
+
+		}
+
+		public void clickToElementByJS(String locator) {
+			element = driver.findElement(By.xpath(locator));
+			js.executeScript("arguments[0].click();", element);
+		}
+
+		public void scrollToElement(String locator) {
+			element = driver.findElement(By.xpath(locator));
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+		}
+
+		public void sendkeyToElementByJS(String locator, String value) {
+			element = driver.findElement(By.xpath(locator));
+			js.executeScript("arguments[0].setAttribute('value', '" + value + "')", element);
+		}
+
+		public void removeAttributeInDOM(String locator, String attributeRemove) {
+			element = driver.findElement(By.xpath(locator));
+			js.executeScript("arguments[0].removeAttribute('" + attributeRemove + "');", element);
+		}
 	
 
 	@AfterClass
