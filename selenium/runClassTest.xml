@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Live Guru" parallel="false">
+	<test name="Firefox Browser">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="testNG.TestNG_06_Parameter_Multibrowser" />
+		</classes>
+
+		<!-- <groups> <run> <include name="product" /> </run> </groups> -->
+		<!-- <packages> <package name="testNG" /> </packages> -->
+	</test>
+	
+	<test name="Chrome Browser">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="testNG.TestNG_06_Parameter_Multibrowser" />
+		</classes>
+	</test>
+</suite> 

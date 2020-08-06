@@ -112,7 +112,7 @@ public class Topic_13_Selenium_Webdriver_Wait {
 	}
 	
 	public void TC_10_Explicit_Wait_Visible() {
-		//check điều kiện element theo chu kì 0.5s cho đến khi thỏa mãn hoặc hết timeout
+		//check điều kiện/trạng thái element theo chu kì 0.5s cho đến khi thỏa mãn hoặc hết timeout
 		driver.get("http://the-internet.herokuapp.com/dynamic_loading/2");
 		driver.findElement(By.xpath("//button[contains(text(),'Start')]")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='finish']/h4")));
